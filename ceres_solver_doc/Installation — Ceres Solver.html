@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://ceres-solver.org/installation.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><script async="" src="./Installation — Ceres Solver_files/analytics.js.下载"></script><script>
+    (function() {
+    class RuffleMimeType {
+        constructor(a, b, c) {
+            this.type = a, this.description = b, this.suffixes = c
+        }
+    }
+    class RuffleMimeTypeArray {
+        constructor(a) {
+            this.__mimetypes = [], this.__named_mimetypes = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__mimetypes.length;
+            this.__mimetypes.push(a), this.__named_mimetypes[a.type] = a, this[a.type] = a, this[b] = a
+        }
+        item(a) {
+            return this.__mimetypes[a]
+        }
+        namedItem(a) {
+            return this.__named_mimetypes[a]
+        }
+        get length() {
+            return this.__mimetypes.length
+        }
+    }
+    class RufflePlugin extends RuffleMimeTypeArray {
+        constructor(a, b, c, d) {
+            super(d), this.name = a, this.description = b, this.filename = c
+        }
+        install(a) {
+            a.enabledPlugin || (a.enabledPlugin = this), super.install(a)
+        }
+    }
+    class RufflePluginArray {
+        constructor(a) {
+            this.__plugins = [], this.__named_plugins = {};
+            for (let b of a) this.install(b)
+        }
+        install(a) {
+            let b = this.__plugins.length;
+            this.__plugins.push(a), this.__named_plugins[a.name] = a, this[a.name] = a, this[b] = a
+        }
+        item(a) {
+            return this.__plugins[a]
+        }
+        namedItem(a) {
+            return this.__named_plugins[a]
+        }
+        get length() {
+            return this.__plugins.length
+        }
+    }
+    const FLASH_PLUGIN = new RufflePlugin("Shockwave Flash", "Shockwave Flash 32.0 r0", "ruffle.js", [new RuffleMimeType("application/futuresplash", "Shockwave Flash", "spl"), new RuffleMimeType("application/x-shockwave-flash", "Shockwave Flash", "swf"), new RuffleMimeType("application/x-shockwave-flash2-preview", "Shockwave Flash", "swf"), new RuffleMimeType("application/vnd.adobe.flash-movie", "Shockwave Flash", "swf")]);
+
+    function install_plugin(a) {
+        navigator.plugins.install || Object.defineProperty(navigator, "plugins", {
+            value: new RufflePluginArray(navigator.plugins),
+            writable: !1
+        }), navigator.plugins.install(a), 0 < a.length && !navigator.mimeTypes.install && Object.defineProperty(navigator, "mimeTypes", {
+            value: new RuffleMimeTypeArray(navigator.mimeTypes),
+            writable: !1
+        });
+        for (var b = 0; b < a.length; b += 1) navigator.mimeTypes.install(a[b])
+    }
+    install_plugin(FLASH_PLUGIN);
+})();
+</script><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation — Ceres Solver</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="./Installation — Ceres Solver_files/modernizr.min.js.下载"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="./Installation — Ceres Solver_files/documentation_options.js.下载"></script>
+        <script data-url_root="./" id="documentation_options" src="./Installation — Ceres Solver_files/documentation_options.js.下载"></script>
+        <script src="./Installation — Ceres Solver_files/jquery.js.下载"></script>
+        <script src="./Installation — Ceres Solver_files/underscore.js.下载"></script>
+        <script src="./Installation — Ceres Solver_files/doctools.js.下载"></script>
+    
+    <script type="text/javascript" src="./Installation — Ceres Solver_files/theme.js.下载"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="./Installation — Ceres Solver_files/theme.css" type="text/css">
+  <link rel="stylesheet" href="./Installation — Ceres Solver_files/pygments.css" type="text/css">
+  <link rel="stylesheet" href="./Installation — Ceres Solver_files/pygments.css" type="text/css">
+  <link rel="stylesheet" href="./Installation — Ceres Solver_files/theme.css" type="text/css">
+    <link rel="index" title="Index" href="http://ceres-solver.org/genindex.html">
+    <link rel="search" title="Search" href="http://ceres-solver.org/search.html">
+    <link rel="next" title="Tutorial" href="http://ceres-solver.org/tutorial.html">
+    <link rel="prev" title="Why?" href="http://ceres-solver.org/features.html"> 
+<style>hcfy-result.__hcfy__result__loaded__.__hcfy__result__both__{border: 1px dotted}</style></head>
+
+<body class="wy-body-for-nav" data-new-gr-c-s-check-loaded="14.1009.0" data-gr-ext-installed="">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="http://ceres-solver.org/index.html" class="icon icon-home"> Ceres Solver
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="http://ceres-solver.org/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/features.html">Why?</a></li>
+<li class="toctree-l1 current"><a class="reference internal current" href="http://ceres-solver.org/installation.html#"><span class="toctree-expand"></span>Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#getting-the-source-code">Getting the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#macos"><span class="toctree-expand"></span>macOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#building-with-openmp-on-macos">Building with OpenMP on macOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#android">Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#ios">iOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#customizing-the-build"><span class="toctree-expand"></span>Customizing the build</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#modifying-default-compilation-flags">Modifying default compilation flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#options-controlling-ceres-configuration">Options controlling Ceres configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#options-controlling-ceres-dependency-locations">Options controlling Ceres dependency locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#building-using-custom-blas-lapack-installs">Building using custom BLAS &amp; LAPACK installs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#using-ceres-with-cmake"><span class="toctree-expand"></span>Using Ceres with CMake</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#specify-ceres-components">Specify Ceres components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#specify-ceres-version">Specify Ceres version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#local-installations">Local installations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#understanding-the-cmake-package-system"><span class="toctree-expand"></span>Understanding the CMake Package System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://ceres-solver.org/installation.html#installing-a-project-with-cmake-vs-exporting-its-build-directory">Installing a project with CMake vs Exporting its build directory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#installing-exporting-a-project-that-uses-ceres">Installing / Exporting a project that uses Ceres</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://ceres-solver.org/installation.html#migration"><span class="toctree-expand"></span>Migration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://ceres-solver.org/installation.html#version-2-0">Version 2.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/derivatives.html">On Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/nnls_modeling.html">Modeling Non-linear Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/nnls_solving.html">Solving Non-linear Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/nnls_covariance.html">Covariance Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/gradient_solver.html">General Unconstrained Minimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/faqs.html">FAQS, Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/version_history.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://ceres-solver.org/license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="http://ceres-solver.org/index.html">Ceres Solver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="http://ceres-solver.org/index.html">Docs</a> »</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<span id="chapter-installation"></span><h1>Installation<a class="headerlink" href="http://ceres-solver.org/installation.html#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-the-source-code">
+<h2>Getting the source code<a class="headerlink" href="http://ceres-solver.org/installation.html#getting-the-source-code" title="Permalink to this headline">¶</a></h2>
+<p id="section-source">You can start with the <a class="reference external" href="http://ceres-solver.org/ceres-solver-2.0.0.tar.gz">latest stable release</a> . Or if you want
+the latest version, you can clone the git repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://ceres-solver.googlesource.com/ceres-solver
+</pre></div>
+</div>
+</div>
+<div class="section" id="dependencies">
+<span id="section-dependencies"></span><h2>Dependencies<a class="headerlink" href="http://ceres-solver.org/installation.html#dependencies" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with v2.0 Ceres requires a <strong>fully C++14-compliant</strong>
+compiler.  In versions &lt;= 1.14, C++11 was an optional requirement.</p>
+</div>
+</div></blockquote>
+<p>Ceres relies on a number of open source libraries, some of which are
+optional. For details on customizing the build process, see
+<a class="reference internal" href="http://ceres-solver.org/installation.html#section-customizing"><span class="std std-ref">Customizing the build</span></a> .</p>
+<ul>
+<li><p><a class="reference external" href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a>
+3.3 or later <strong>required</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ceres can also use Eigen as a sparse linear algebra
+library. Please see the documentation for <code class="docutils literal notranslate"><span class="pre">EIGENSPARSE</span></code> for
+more details.</p>
+</div>
+</li>
+<li><p><a class="reference external" href="http://www.cmake.org/">CMake</a> 3.5 or later <strong>required</strong>.</p></li>
+<li><p><a class="reference external" href="https://github.com/google/glog">glog</a> 0.3.1 or
+later. <strong>Recommended</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">glog</span></code> is used extensively throughout Ceres for logging detailed
+information about memory allocations and time consumed in various
+parts of the solve, internal error conditions etc. The Ceres
+developers use it extensively to observe and analyze Ceres’s
+performance. <a class="reference external" href="https://github.com/google/glog">glog</a> allows you to
+control its behaviour from the command line. Starting with
+<code class="docutils literal notranslate"><span class="pre">-logtostderr</span></code> you can add <code class="docutils literal notranslate"><span class="pre">-v=N</span></code> for increasing values of <code class="docutils literal notranslate"><span class="pre">N</span></code>
+to get more and more verbose and detailed information about Ceres
+internals.</p>
+<p>Ceres also ships with a minimal replacement of <code class="docutils literal notranslate"><span class="pre">glog</span></code> called
+<code class="docutils literal notranslate"><span class="pre">miniglog</span></code> that can be enabled with the <code class="docutils literal notranslate"><span class="pre">MINIGLOG</span></code> build option.
+<code class="docutils literal notranslate"><span class="pre">miniglog</span></code> is supplied for platforms which do not support the full
+version of <code class="docutils literal notranslate"><span class="pre">glog</span></code>.</p>
+<p>In an attempt to reduce dependencies, it may be tempting to use
+<code class="docutils literal notranslate"><span class="pre">miniglog</span></code> on platforms which already support <code class="docutils literal notranslate"><span class="pre">glog</span></code>. While
+there is nothing preventing the user from doing so, we strongly
+recommend against it. <code class="docutils literal notranslate"><span class="pre">miniglog</span></code> has worse performance than
+<code class="docutils literal notranslate"><span class="pre">glog</span></code> and is much harder to control and use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are compiling <code class="docutils literal notranslate"><span class="pre">glog</span></code> from source, please note that
+currently, the unit tests for <code class="docutils literal notranslate"><span class="pre">glog</span></code> (which are enabled by
+default) do not compile against a default build of <code class="docutils literal notranslate"><span class="pre">gflags</span></code> 2.1
+as the gflags namespace changed from <code class="docutils literal notranslate"><span class="pre">google::</span></code> to
+<code class="docutils literal notranslate"><span class="pre">gflags::</span></code>.  A patch to fix this is available from <a class="reference external" href="https://code.google.com/p/google-glog/issues/detail?id=194">here</a>.</p>
+</div>
+</li>
+<li><p><a class="reference external" href="https://github.com/gflags/gflags">gflags</a>. Needed to build
+examples and tests and usually a dependency for glog.</p></li>
+<li><p><a class="reference external" href="http://faculty.cse.tamu.edu/davis/suitesparse.html">SuiteSparse</a>. Needed for
+solving large sparse linear systems. <strong>Optional; strongly recomended
+for large scale bundle adjustment</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If SuiteSparseQR is found, Ceres attempts to find the Intel
+Thread Building Blocks (TBB) library. If found, Ceres assumes
+SuiteSparseQR was compiled with TBB support and will link to the
+found TBB version. You can customize the searched TBB location
+with the <code class="docutils literal notranslate"><span class="pre">TBB_ROOT</span></code> variable.</p>
+</div>
+</li>
+<li><p><a class="reference external" href="http://faculty.cse.tamu.edu/davis/suitesparse.html">CXSparse</a>.
+Similar to <code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code> but simpler and slower. CXSparse has
+no dependencies on <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> and <code class="docutils literal notranslate"><span class="pre">BLAS</span></code>. This makes for a simpler
+build process and a smaller binary. <strong>Optional</strong></p></li>
+<li><p><a class="reference external" href="https://developer.apple.com/documentation/accelerate/sparse_solvers">Apple’s Accelerate sparse solvers</a>.
+As of Xcode 9.0, Apple’s Accelerate framework includes support for
+solving sparse linear systems across macOS, iOS et al. <strong>Optional</strong></p></li>
+<li><p><a class="reference external" href="http://www.netlib.org/blas/">BLAS</a> and <a class="reference external" href="http://www.netlib.org/lapack/">LAPACK</a> routines are needed by
+<code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code>, and optionally used by Ceres directly for some
+operations.</p>
+<p>On <code class="docutils literal notranslate"><span class="pre">UNIX</span></code> OSes other than macOS we recommend <a class="reference external" href="http://math-atlas.sourceforge.net/">ATLAS</a>, which includes <code class="docutils literal notranslate"><span class="pre">BLAS</span></code> and
+<code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> routines. It is also possible to use <a class="reference external" href="https://github.com/xianyi/OpenBLAS">OpenBLAS</a> . However, one needs to be
+careful to <a class="reference external" href="https://github.com/xianyi/OpenBLAS/wiki/faq#wiki-multi-threaded">turn off the threading</a>
+inside <code class="docutils literal notranslate"><span class="pre">OpenBLAS</span></code> as it conflicts with use of threads in Ceres.</p>
+<p>MacOS ships with an optimized <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> and <code class="docutils literal notranslate"><span class="pre">BLAS</span></code>
+implementation as part of the <code class="docutils literal notranslate"><span class="pre">Accelerate</span></code> framework. The Ceres
+build system will automatically detect and use it.</p>
+<p>For Windows things are much more complicated. <a class="reference external" href="http://icl.cs.utk.edu/lapack-for-windows/lapack/">LAPACK For
+Windows</a>
+has detailed instructions..</p>
+<p><strong>Optional but required for</strong> <code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="linux">
+<span id="section-linux"></span><h2>Linux<a class="headerlink" href="http://ceres-solver.org/installation.html#linux" title="Permalink to this headline">¶</a></h2>
+<p>We will use <a class="reference external" href="http://www.ubuntu.com/">Ubuntu</a> as our example linux
+distribution.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions are for Ubuntu 18.04 and newer. On Ubuntu 16.04
+you need to manually get a more recent version of Eigen, such as
+3.3.7.</p>
+</div>
+</div></blockquote>
+<p>Start by installing all the dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMake</span>
+sudo apt-get install cmake
+<span class="c1"># google-glog + gflags</span>
+sudo apt-get install libgoogle-glog-dev libgflags-dev
+<span class="c1"># BLAS &amp; LAPACK</span>
+sudo apt-get install libatlas-base-dev
+<span class="c1"># Eigen3</span>
+sudo apt-get install libeigen3-dev
+<span class="c1"># SuiteSparse and CXSparse (optional)</span>
+sudo apt-get install libsuitesparse-dev
+</pre></div>
+</div>
+<p>We are now ready to build, test, and install Ceres.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxf ceres-solver-2.0.0.tar.gz
+mkdir ceres-bin
+<span class="nb">cd</span> ceres-bin
+cmake ../ceres-solver-2.0.0
+make -j3
+make <span class="nb">test</span>
+<span class="c1"># Optionally install Ceres, it can also be exported using CMake which</span>
+<span class="c1"># allows Ceres to be used without requiring installation, see the documentation</span>
+<span class="c1"># for the EXPORT_BUILD_DIR option for more information.</span>
+make install
+</pre></div>
+</div>
+<p>You can also try running the command line bundling application with one of the
+included problems, which comes from the University of Washington’s BAL
+dataset <a class="reference internal" href="http://ceres-solver.org/bibliography.html#agarwal" id="id2"><span>[Agarwal]</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bin/simple_bundle_adjuster ../ceres-solver-2.0.0/data/problem-16-22106-pre.txt
+</pre></div>
+</div>
+<p>This runs Ceres for a maximum of 10 iterations using the
+<code class="docutils literal notranslate"><span class="pre">DENSE_SCHUR</span></code> linear solver. The output should look something like
+this.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iter      cost      cost_change  <span class="p">|</span>gradient<span class="p">|</span>   <span class="p">|</span>step<span class="p">|</span>    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   <span class="m">0</span>  <span class="m">4</span>.185660e+06    <span class="m">0</span>.00e+00    <span class="m">1</span>.09e+08   <span class="m">0</span>.00e+00   <span class="m">0</span>.00e+00  <span class="m">1</span>.00e+04       <span class="m">0</span>    <span class="m">7</span>.59e-02    <span class="m">3</span>.37e-01
+   <span class="m">1</span>  <span class="m">1</span>.062590e+05    <span class="m">4</span>.08e+06    <span class="m">8</span>.99e+06   <span class="m">5</span>.36e+02   <span class="m">9</span>.82e-01  <span class="m">3</span>.00e+04       <span class="m">1</span>    <span class="m">1</span>.65e-01    <span class="m">5</span>.03e-01
+   <span class="m">2</span>  <span class="m">4</span>.992817e+04    <span class="m">5</span>.63e+04    <span class="m">8</span>.32e+06   <span class="m">3</span>.19e+02   <span class="m">6</span>.52e-01  <span class="m">3</span>.09e+04       <span class="m">1</span>    <span class="m">1</span>.45e-01    <span class="m">6</span>.48e-01
+   <span class="m">3</span>  <span class="m">1</span>.899774e+04    <span class="m">3</span>.09e+04    <span class="m">1</span>.60e+06   <span class="m">1</span>.24e+02   <span class="m">9</span>.77e-01  <span class="m">9</span>.26e+04       <span class="m">1</span>    <span class="m">1</span>.43e-01    <span class="m">7</span>.92e-01
+   <span class="m">4</span>  <span class="m">1</span>.808729e+04    <span class="m">9</span>.10e+02    <span class="m">3</span>.97e+05   <span class="m">6</span>.39e+01   <span class="m">9</span>.51e-01  <span class="m">2</span>.78e+05       <span class="m">1</span>    <span class="m">1</span>.45e-01    <span class="m">9</span>.36e-01
+   <span class="m">5</span>  <span class="m">1</span>.803399e+04    <span class="m">5</span>.33e+01    <span class="m">1</span>.48e+04   <span class="m">1</span>.23e+01   <span class="m">9</span>.99e-01  <span class="m">8</span>.33e+05       <span class="m">1</span>    <span class="m">1</span>.45e-01    <span class="m">1</span>.08e+00
+   <span class="m">6</span>  <span class="m">1</span>.803390e+04    <span class="m">9</span>.02e-02    <span class="m">6</span>.35e+01   <span class="m">8</span>.00e-01   <span class="m">1</span>.00e+00  <span class="m">2</span>.50e+06       <span class="m">1</span>    <span class="m">1</span>.50e-01    <span class="m">1</span>.23e+00
+
+Ceres Solver v2.0.0 Solve Report
+----------------------------------
+                                     Original                  Reduced
+Parameter blocks                        <span class="m">22122</span>                    <span class="m">22122</span>
+Parameters                              <span class="m">66462</span>                    <span class="m">66462</span>
+Residual blocks                         <span class="m">83718</span>                    <span class="m">83718</span>
+Residual                               <span class="m">167436</span>                   <span class="m">167436</span>
+
+Minimizer                        TRUST_REGION
+
+Dense linear algebra library            EIGEN
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver                     DENSE_SCHUR              DENSE_SCHUR
+Threads                                     <span class="m">1</span>                        <span class="m">1</span>
+Linear solver threads                       <span class="m">1</span>                        <span class="m">1</span>
+Linear solver ordering              AUTOMATIC                <span class="m">22106</span>, <span class="m">16</span>
+
+Cost:
+Initial                          <span class="m">4</span>.185660e+06
+Final                            <span class="m">1</span>.803390e+04
+Change                           <span class="m">4</span>.167626e+06
+
+Minimizer iterations                        <span class="m">6</span>
+Successful steps                            <span class="m">6</span>
+Unsuccessful steps                          <span class="m">0</span>
+
+Time <span class="o">(</span>in seconds<span class="o">)</span>:
+Preprocessor                            <span class="m">0</span>.261
+
+  Residual evaluation                   <span class="m">0</span>.082
+  Jacobian evaluation                   <span class="m">0</span>.412
+  Linear solver                         <span class="m">0</span>.442
+Minimizer                               <span class="m">1</span>.051
+
+Postprocessor                           <span class="m">0</span>.002
+Total                                   <span class="m">1</span>.357
+
+Termination:                      CONVERGENCE <span class="o">(</span>Function tolerance reached. <span class="p">|</span>cost_change<span class="p">|</span>/cost: <span class="m">1</span>.769766e-09 &lt;<span class="o">=</span> <span class="m">1</span>.000000e-06<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="macos">
+<h2>macOS<a class="headerlink" href="http://ceres-solver.org/installation.html#macos" title="Permalink to this headline">¶</a></h2>
+<p>On macOS, you can either use <a class="reference external" href="https://brew.sh/">Homebrew</a> (recommended) or <a class="reference external" href="https://www.macports.org/">MacPorts</a> to install Ceres Solver.</p>
+<p>If using <a class="reference external" href="https://brew.sh/">Homebrew</a>, then</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install ceres-solver
+</pre></div>
+</div>
+<p>will install the latest stable version along with all the required
+dependencies and</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install ceres-solver --HEAD
+</pre></div>
+</div>
+<p>will install the latest version in the git repo.</p>
+<p>If using <a class="reference external" href="https://www.macports.org/">MacPorts</a>, then</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo port install ceres-solver
+</pre></div>
+</div>
+<p>will install the latest version.</p>
+<p>You can also install each of the dependencies by hand using <a class="reference external" href="https://brew.sh/">Homebrew</a>. There is no need to install
+<code class="docutils literal notranslate"><span class="pre">BLAS</span></code> or <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> separately as macOS ships with optimized
+<code class="docutils literal notranslate"><span class="pre">BLAS</span></code> and <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> routines as part of the <a class="reference external" href="https://developer.apple.com/library/mac/#documentation/Performance/Conceptual/vecLib/Reference/reference.html">vecLib</a>
+framework.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMake</span>
+brew install cmake
+<span class="c1"># google-glog and gflags</span>
+brew install glog gflags
+<span class="c1"># Eigen3</span>
+brew install eigen
+<span class="c1"># SuiteSparse and CXSparse</span>
+brew install suite-sparse
+</pre></div>
+</div>
+<p>We are now ready to build, test, and install Ceres.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxf ceres-solver-2.0.0.tar.gz
+mkdir ceres-bin
+<span class="nb">cd</span> ceres-bin
+cmake ../ceres-solver-2.0.0
+make -j3
+make <span class="nb">test</span>
+<span class="c1"># Optionally install Ceres, it can also be exported using CMake which</span>
+<span class="c1"># allows Ceres to be used without requiring installation, see the</span>
+<span class="c1"># documentation for the EXPORT_BUILD_DIR option for more information.</span>
+make install
+</pre></div>
+</div>
+<div class="section" id="building-with-openmp-on-macos">
+<h3>Building with OpenMP on macOS<a class="headerlink" href="http://ceres-solver.org/installation.html#building-with-openmp-on-macos" title="Permalink to this headline">¶</a></h3>
+<p>Up to at least Xcode 12, OpenMP support was disabled in Apple’s version of
+Clang.  However, you can install the latest version of the LLVM toolchain
+from Homebrew which does support OpenMP, and thus build Ceres with OpenMP
+support on macOS.  To do this, you must install llvm via Homebrew:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install latest version of LLVM toolchain.</span>
+brew install llvm
+</pre></div>
+</div>
+<p>As the LLVM formula in Homebrew is keg-only, it will not be installed to
+<code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> to avoid conflicts with the standard Apple LLVM toolchain.
+To build Ceres with the Homebrew LLVM toolchain you should do the
+following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar zxf ceres-solver-2.0.0.tar.gz
+mkdir ceres-bin
+<span class="nb">cd</span> ceres-bin
+<span class="c1"># Configure the local shell only (not persistent) to use the Homebrew LLVM</span>
+<span class="c1"># toolchain in favour of the default Apple version.  This is taken</span>
+<span class="c1"># verbatim from the instructions output by Homebrew when installing the</span>
+<span class="c1"># llvm formula.</span>
+<span class="nb">export</span> <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">"-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"</span>
+<span class="nb">export</span> <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">"-I/usr/local/opt/llvm/include"</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">"/usr/local/opt/llvm/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+<span class="c1"># Force CMake to use the Homebrew version of Clang and enable OpenMP.</span>
+cmake -DCMAKE_C_COMPILER<span class="o">=</span>/usr/local/opt/llvm/bin/clang -DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/local/opt/llvm/bin/clang++ -DCERES_THREADING_MODEL<span class="o">=</span>OPENMP ../ceres-solver-2.0.0
+make -j3
+make <span class="nb">test</span>
+<span class="c1"># Optionally install Ceres.  It can also be exported using CMake which</span>
+<span class="c1"># allows Ceres to be used without requiring installation.  See the</span>
+<span class="c1"># documentation for the EXPORT_BUILD_DIR option for more information.</span>
+make install
+</pre></div>
+</div>
+<p>Like the Linux build, you should now be able to run
+<code class="docutils literal notranslate"><span class="pre">bin/simple_bundle_adjuster</span></code>.</p>
+</div>
+</div>
+<div class="section" id="windows">
+<span id="section-windows"></span><h2>Windows<a class="headerlink" href="http://ceres-solver.org/installation.html#windows" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you find the following CMake difficult to set up, then you may
+be interested in a <a class="reference external" href="https://github.com/tbennun/ceres-windows">Microsoft Visual Studio wrapper</a> for Ceres Solver by Tal
+Ben-Nun.</p>
+</div>
+<p>On Windows, we support building with Visual Studio 2015.2 of newer. Note
+that the Windows port is less featureful and less tested than the
+Linux or macOS versions due to the lack of an officially supported
+way of building SuiteSparse and CXSparse.  There are however a number
+of unofficial ways of building these libraries. Building on Windows
+also a bit more involved since there is no automated way to install
+dependencies.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">google-glog</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">miniglog</span></code> with windows.h.</p>
+<p>The windows.h header if used with GDI (Graphics Device Interface)
+defines <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, which conflicts with the definition of <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>
+as a LogSeverity level in <code class="docutils literal notranslate"><span class="pre">google-glog</span></code> and <code class="docutils literal notranslate"><span class="pre">miniglog</span></code>.  There
+are at least two possible fixes to this problem:</p>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">google-glog</span></code> and define <code class="docutils literal notranslate"><span class="pre">GLOG_NO_ABBREVIATED_SEVERITIES</span></code>
+when building Ceres and your own project, as documented <a class="reference external" href="http://google-glog.googlecode.com/svn/trunk/doc/glog.html">here</a>.
+Note that this fix will not work for <code class="docutils literal notranslate"><span class="pre">miniglog</span></code>, but use of
+<code class="docutils literal notranslate"><span class="pre">miniglog</span></code> is strongly discouraged on any platform for which
+<code class="docutils literal notranslate"><span class="pre">google-glog</span></code> is available (which includes Windows).</p></li>
+<li><p>If you do not require GDI, then define <code class="docutils literal notranslate"><span class="pre">NOGDI</span></code> <strong>before</strong>
+including windows.h.  This solution should work for both
+<code class="docutils literal notranslate"><span class="pre">google-glog</span></code> and <code class="docutils literal notranslate"><span class="pre">miniglog</span></code> and is documented for
+<code class="docutils literal notranslate"><span class="pre">google-glog</span></code> <a class="reference external" href="https://code.google.com/p/google-glog/issues/detail?id=33">here</a>.</p></li>
+</ol>
+</div>
+<ol class="arabic">
+<li><p>Make a toplevel directory for deps &amp; build &amp; src somewhere: <code class="docutils literal notranslate"><span class="pre">ceres/</span></code></p></li>
+<li><p>Get dependencies; unpack them as subdirectories in <code class="docutils literal notranslate"><span class="pre">ceres/</span></code>
+(<code class="docutils literal notranslate"><span class="pre">ceres/eigen</span></code>, <code class="docutils literal notranslate"><span class="pre">ceres/glog</span></code>, etc)</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Eigen</span></code> 3.3 . Configure and optionally install Eigen. It should be
+exported into the CMake package registry by default as part of the
+configure stage so installation should not be necessary.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">google-glog</span></code> Open up the Visual Studio solution and build it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gflags</span></code> Open up the Visual Studio solution and build it.</p></li>
+<li><p>(Experimental) <code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code> Previously SuiteSparse was not
+available on Windows, recently it has become possible to build
+it on Windows using the <a class="reference external" href="https://github.com/jlblancoc/suitesparse-metis-for-windows">suitesparse-metis-for-windows</a>
+project.  If you wish to use <code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code>, follow their
+instructions for obtaining and building it.</p></li>
+<li><p>(Experimental) <code class="docutils literal notranslate"><span class="pre">CXSparse</span></code> Previously CXSparse was not
+available on Windows, there are now several ports that enable it
+to be, including: <a class="reference external" href="https://github.com/PetterS/CXSparse">[1]</a>
+and <a class="reference external" href="https://github.com/TheFrenchLeaf/CXSparse">[2]</a>.  If you
+wish to use <code class="docutils literal notranslate"><span class="pre">CXSparse</span></code>, follow their instructions for
+obtaining and building it.</p></li>
+</ol>
+</li>
+<li><p>Unpack the Ceres tarball into <code class="docutils literal notranslate"><span class="pre">ceres</span></code>. For the tarball, you
+should get a directory inside <code class="docutils literal notranslate"><span class="pre">ceres</span></code> similar to
+<code class="docutils literal notranslate"><span class="pre">ceres-solver-2.0.0</span></code>. Alternately, checkout Ceres via <code class="docutils literal notranslate"><span class="pre">git</span></code> to
+get <code class="docutils literal notranslate"><span class="pre">ceres-solver.git</span></code> inside <code class="docutils literal notranslate"><span class="pre">ceres</span></code>.</p></li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">CMake</span></code>,</p></li>
+<li><p>Make a dir <code class="docutils literal notranslate"><span class="pre">ceres/ceres-bin</span></code> (for an out-of-tree build)</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">CMake</span></code>; select the <code class="docutils literal notranslate"><span class="pre">ceres-solver-X.Y.Z</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ceres-solver.git</span></code> directory for the CMake file. Then select the
+<code class="docutils literal notranslate"><span class="pre">ceres-bin</span></code> for the build dir.</p></li>
+<li><p>Try running <code class="docutils literal notranslate"><span class="pre">Configure</span></code>. It won’t work. It’ll show a bunch of options.
+You’ll need to set:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Eigen3_DIR</span></code> (Set to directory containing <code class="docutils literal notranslate"><span class="pre">Eigen3Config.cmake</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOG_INCLUDE_DIR_HINTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOG_LIBRARY_DIR_HINTS</span></code></p></li>
+<li><p>(Optional) <code class="docutils literal notranslate"><span class="pre">gflags_DIR</span></code> (Set to directory containing <code class="docutils literal notranslate"><span class="pre">gflags-config.cmake</span></code>)</p></li>
+<li><p>(Optional) <code class="docutils literal notranslate"><span class="pre">SUITESPARSE_INCLUDE_DIR_HINTS</span></code></p></li>
+<li><p>(Optional) <code class="docutils literal notranslate"><span class="pre">SUITESPARSE_LIBRARY_DIR_HINTS</span></code></p></li>
+<li><p>(Optional) <code class="docutils literal notranslate"><span class="pre">CXSPARSE_INCLUDE_DIR_HINTS</span></code></p></li>
+<li><p>(Optional) <code class="docutils literal notranslate"><span class="pre">CXSPARSE_LIBRARY_DIR_HINTS</span></code></p></li>
+</ol>
+<p>to the appropriate directories where you unpacked/built them. If
+any of the variables are not visible in the <code class="docutils literal notranslate"><span class="pre">CMake</span></code> GUI, create a
+new entry for them.  We recommend using the
+<code class="docutils literal notranslate"><span class="pre">&lt;NAME&gt;_(INCLUDE/LIBRARY)_DIR_HINTS</span></code> variables rather than
+setting the <code class="docutils literal notranslate"><span class="pre">&lt;NAME&gt;_INCLUDE_DIR</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">&lt;NAME&gt;_LIBRARY</span></code> variables
+directly to keep all of the validity checking, and to avoid having
+to specify the library files manually.</p>
+</li>
+<li><p>You may have to tweak some more settings to generate a MSVC
+project.  After each adjustment, try pressing Configure &amp; Generate
+until it generates successfully.</p></li>
+<li><p>Open the solution and build it in MSVC</p></li>
+</ol>
+<p>To run the tests, select the <code class="docutils literal notranslate"><span class="pre">RUN_TESTS</span></code> target and hit <strong>Build
+RUN_TESTS</strong> from the build menu.</p>
+<p>Like the Linux build, you should now be able to run
+<code class="docutils literal notranslate"><span class="pre">bin/simple_bundle_adjuster</span></code>.</p>
+<p>Notes:</p>
+<ol class="arabic simple">
+<li><p>The default build is Debug; consider switching it to release mode.</p></li>
+<li><p>Currently <code class="docutils literal notranslate"><span class="pre">system_test</span></code> is not working properly.</p></li>
+<li><p>CMake puts the resulting test binaries in <code class="docutils literal notranslate"><span class="pre">ceres-bin/examples/Debug</span></code>
+by default.</p></li>
+<li><p>The solvers supported on Windows are <code class="docutils literal notranslate"><span class="pre">DENSE_QR</span></code>, <code class="docutils literal notranslate"><span class="pre">DENSE_SCHUR</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CGNR</span></code>, and <code class="docutils literal notranslate"><span class="pre">ITERATIVE_SCHUR</span></code>.</p></li>
+<li><p>We’re looking for someone to work with upstream <code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code> to
+port their build system to something sane like <code class="docutils literal notranslate"><span class="pre">CMake</span></code>, and get a
+fully supported Windows port.</p></li>
+</ol>
+</div>
+<div class="section" id="android">
+<span id="section-android"></span><h2>Android<a class="headerlink" href="http://ceres-solver.org/installation.html#android" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need Android NDK r15 or higher to build Ceres solver.</p>
+</div>
+<p>To build Ceres for Android, we need to force <code class="docutils literal notranslate"><span class="pre">CMake</span></code> to find
+the toolchains from the Android NDK instead of using the standard
+ones. For example, assuming you have specified <code class="docutils literal notranslate"><span class="pre">$NDK_DIR</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake <span class="se">\</span>
+-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span><span class="se">\</span>
+    <span class="nv">$NDK_DIR</span>/build/cmake/android.toolchain.cmake <span class="se">\</span>
+-DEigen3_DIR<span class="o">=</span>/path/to/Eigen3Config.cmake <span class="se">\</span>
+-DANDROID_ABI<span class="o">=</span>arm64-v8a <span class="se">\</span>
+-DANDROID_STL<span class="o">=</span>c++_shared <span class="se">\</span>
+-DANDROID_NATIVE_API_LEVEL<span class="o">=</span>android-29 <span class="se">\</span>
+-DBUILD_SHARED_LIBS<span class="o">=</span>ON <span class="se">\</span>
+-DMINIGLOG<span class="o">=</span>ON <span class="se">\</span>
+&lt;PATH_TO_CERES_SOURCE&gt;
+</pre></div>
+</div>
+<p>You can build for any Android STL or ABI, but the c++_shared STL
+and the armeabi-v7a or arm64-v8a ABI are recommended for 32bit
+and 64bit architectures, respectively. Several API levels may
+be supported, but it is recommended that you use the highest
+level that is suitable for your Android project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must always use the same API level and STL library for
+your Android project and the Ceres binaries.</p>
+</div>
+<p>After building, you get a <code class="docutils literal notranslate"><span class="pre">libceres.so</span></code> library, which you can
+link in your Android build system by using a
+<code class="docutils literal notranslate"><span class="pre">PREBUILT_SHARED_LIBRARY</span></code> target in your build script.</p>
+<p>If you are building any Ceres samples and would like to verify
+your library, you will need to place them in an executable public
+directory together with <code class="docutils literal notranslate"><span class="pre">libceres.so</span></code> on your Android device
+(e.g. in /data/local/tmp) and ensure that the STL library from
+your NDK is present in that same directory. You may then execute
+the sample by running for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>adb shell
+<span class="nb">cd</span> /data/local/tmp
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/data/local/tmp ./helloworld
+</pre></div>
+</div>
+<p>Note that any solvers or other shared dependencies you include in
+your project must also be present in your android build config and
+your test directory on Android.</p>
+</div>
+<div class="section" id="ios">
+<span id="section-ios"></span><h2>iOS<a class="headerlink" href="http://ceres-solver.org/installation.html#ios" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need iOS version 7.0 or higher to build Ceres Solver.</p>
+</div>
+<p>To build Ceres for iOS, we need to force <code class="docutils literal notranslate"><span class="pre">CMake</span></code> to find the
+toolchains from the iOS SDK instead of using the standard ones. For
+example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake <span class="se">\</span>
+-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>../ceres-solver/cmake/iOS.cmake <span class="se">\</span>
+-DEigen3_DIR<span class="o">=</span>/path/to/Eigen3Config.cmake <span class="se">\</span>
+-DIOS_PLATFORM<span class="o">=</span>&lt;PLATFORM&gt; <span class="se">\</span>
+&lt;PATH_TO_CERES_SOURCE&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">PLATFORM</span></code> can be: <code class="docutils literal notranslate"><span class="pre">OS</span></code>, <code class="docutils literal notranslate"><span class="pre">SIMULATOR</span></code> or <code class="docutils literal notranslate"><span class="pre">SIMULATOR64</span></code>. You can
+build for <code class="docutils literal notranslate"><span class="pre">OS</span></code> (<code class="docutils literal notranslate"><span class="pre">armv7</span></code>, <code class="docutils literal notranslate"><span class="pre">armv7s</span></code>, <code class="docutils literal notranslate"><span class="pre">arm64</span></code>), <code class="docutils literal notranslate"><span class="pre">SIMULATOR</span></code>
+(<code class="docutils literal notranslate"><span class="pre">i386</span></code>) or <code class="docutils literal notranslate"><span class="pre">SIMULATOR64</span></code> (<code class="docutils literal notranslate"><span class="pre">x86_64</span></code>) separately and use <code class="docutils literal notranslate"><span class="pre">lipo</span></code>
+to merge them into one static library.  See <code class="docutils literal notranslate"><span class="pre">cmake/iOS.cmake</span></code> for
+more options.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>iOS version 11.0+ requires a 64-bit architecture, so you cannot
+build for armv7/armv7s with iOS 11.0+ (only arm64 is supported).</p>
+</div>
+<p>After building, you will get a <code class="docutils literal notranslate"><span class="pre">libceres.a</span></code> library, which you will
+need to add to your Xcode project.</p>
+<p>The default CMake configuration builds a bare bones version of Ceres
+Solver that only depends on Eigen (<code class="docutils literal notranslate"><span class="pre">MINIGLOG</span></code> is compiled into Ceres
+if it is used), this should be sufficient for solving small to
+moderate sized problems (No <code class="docutils literal notranslate"><span class="pre">SPARSE_SCHUR</span></code>,
+<code class="docutils literal notranslate"><span class="pre">SPARSE_NORMAL_CHOLESKY</span></code> linear solvers and no <code class="docutils literal notranslate"><span class="pre">CLUSTER_JACOBI</span></code>
+and <code class="docutils literal notranslate"><span class="pre">CLUSTER_TRIDIAGONAL</span></code> preconditioners).</p>
+<p>If you decide to use <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> and <code class="docutils literal notranslate"><span class="pre">BLAS</span></code>, then you also need to
+add <code class="docutils literal notranslate"><span class="pre">Accelerate.framework</span></code> to your Xcode project’s linking
+dependency.</p>
+</div>
+<div class="section" id="customizing-the-build">
+<span id="section-customizing"></span><h2>Customizing the build<a class="headerlink" href="http://ceres-solver.org/installation.html#customizing-the-build" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to reduce the libraries needed to build Ceres and
+customize the build process by setting the appropriate options in
+<code class="docutils literal notranslate"><span class="pre">CMake</span></code>.  These options can either be set in the <code class="docutils literal notranslate"><span class="pre">CMake</span></code> GUI, or
+via <code class="docutils literal notranslate"><span class="pre">-D&lt;OPTION&gt;=&lt;ON/OFF&gt;</span></code> when running <code class="docutils literal notranslate"><span class="pre">CMake</span></code> from the command
+line.  In general, you should only modify these options from their
+defaults if you know what you are doing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are setting variables via <code class="docutils literal notranslate"><span class="pre">-D&lt;VARIABLE&gt;=&lt;VALUE&gt;</span></code> when
+calling <code class="docutils literal notranslate"><span class="pre">CMake</span></code>, it is important to understand that this forcibly
+<strong>overwrites</strong> the variable <code class="docutils literal notranslate"><span class="pre">&lt;VARIABLE&gt;</span></code> in the <code class="docutils literal notranslate"><span class="pre">CMake</span></code> cache at
+the start of <em>every configure</em>.</p>
+<p>This can lead to confusion if you are invoking the <code class="docutils literal notranslate"><span class="pre">CMake</span></code> <a class="reference external" href="http://www.gnu.org/software/ncurses/ncurses.html">curses</a> terminal GUI
+(via <code class="docutils literal notranslate"><span class="pre">ccmake</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">`ccmake</span> <span class="pre">-D&lt;VARIABLE&gt;=&lt;VALUE&gt;</span>
+<span class="pre">&lt;PATH_TO_SRC&gt;</span></code>).  In this case, even if you change the value of
+<code class="docutils literal notranslate"><span class="pre">&lt;VARIABLE&gt;</span></code> in the <code class="docutils literal notranslate"><span class="pre">CMake</span></code> GUI, your changes will be
+<strong>overwritten</strong> with the value passed via <code class="docutils literal notranslate"><span class="pre">-D&lt;VARIABLE&gt;=&lt;VALUE&gt;</span></code>
+(if one exists) at the start of each configure.</p>
+<p>As such, it is generally easier not to pass values to <code class="docutils literal notranslate"><span class="pre">CMake</span></code> via
+<code class="docutils literal notranslate"><span class="pre">-D</span></code> and instead interactively experiment with their values in the
+<code class="docutils literal notranslate"><span class="pre">CMake</span></code> GUI.  If they are not present in the <em>Standard View</em>,
+toggle to the <em>Advanced View</em> with <code class="docutils literal notranslate"><span class="pre">&lt;t&gt;</span></code>.</p>
+</div>
+<div class="section" id="modifying-default-compilation-flags">
+<h3>Modifying default compilation flags<a class="headerlink" href="http://ceres-solver.org/installation.html#modifying-default-compilation-flags" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> variable can be used to define additional
+default compilation flags for all build types.  Any flags specified
+in <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> will be used in addition to the default
+flags used by Ceres for the current build type.</p>
+<p>For example, if you wished to build Ceres with <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html">-march=native</a> which is not
+enabled by default (even if <code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE=Release</span></code>) you would invoke
+CMake with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DCMAKE_CXX_FLAGS<span class="o">=</span><span class="s2">"-march=native"</span> &lt;PATH_TO_CERES_SOURCE&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The use of <code class="docutils literal notranslate"><span class="pre">-march=native</span></code> will limit portability, as it will tune the
+implementation to the specific CPU of the compiling machine (e.g. use of
+AVX if available).  Run-time segfaults may occur if you then tried to
+run the resulting binaries on a machine with a different processor, even
+if it is from the same family (e.g. x86) if the specific options available
+are different.  Note that the performance gains from the use of
+<code class="docutils literal notranslate"><span class="pre">-march=native</span></code> are not guaranteed to be significant.</p>
+</div>
+</div>
+<div class="section" id="options-controlling-ceres-configuration">
+<span id="id8"></span><h3>Options controlling Ceres configuration<a class="headerlink" href="http://ceres-solver.org/installation.html#options-controlling-ceres-configuration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">LAPACK</span> <span class="pre">[Default:</span> <span class="pre">ON]</span></code>: If this option is enabled, and the <code class="docutils literal notranslate"><span class="pre">BLAS</span></code> and
+<code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> libraries are found, Ceres will enable <strong>direct</strong> use of
+<code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> routines (i.e. Ceres itself will call them).  If this option is
+disabled, then Ceres will not require <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> or <code class="docutils literal notranslate"><span class="pre">BLAS</span></code>.  It is
+however still possible that Ceres may call <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> routines indirectly
+via SuiteSparse if <code class="docutils literal notranslate"><span class="pre">LAPACK=OFF</span></code> and <code class="docutils literal notranslate"><span class="pre">SUITESPARSE=ON</span></code>.  Finally
+note that if <code class="docutils literal notranslate"><span class="pre">LAPACK=ON</span></code> and <code class="docutils literal notranslate"><span class="pre">SUITESPARSE=ON</span></code>, the <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> and
+<code class="docutils literal notranslate"><span class="pre">BLAS</span></code> libraries used by SuiteSparse and Ceres should be the same.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SUITESPARSE</span> <span class="pre">[Default:</span> <span class="pre">ON]</span></code>: By default, Ceres will link to
+<code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code> if it and all of its dependencies are present. Turn
+this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> to build Ceres without <code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SuiteSparse is licensed under a mixture of GPL/LGPL/Commercial
+terms.  Ceres requires some components that are only licensed under
+GPL/Commercial terms.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CXSPARSE</span> <span class="pre">[Default:</span> <span class="pre">ON]</span></code>: By default, Ceres will link to
+<code class="docutils literal notranslate"><span class="pre">CXSparse</span></code> if all its dependencies are present. Turn this <code class="docutils literal notranslate"><span class="pre">OFF</span></code>
+to build Ceres without <code class="docutils literal notranslate"><span class="pre">CXSparse</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CXSparse is licensed under the LGPL.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACCELERATESPARSE</span> <span class="pre">[Default:</span> <span class="pre">ON]</span></code>: By default, Ceres will link to
+Apple’s Accelerate framework directly if a version of it is detected
+which supports solving sparse linear systems.  Note that on Apple OSs
+Accelerate usually also provides the BLAS/LAPACK implementations and
+so would be linked against irrespective of the value of <code class="docutils literal notranslate"><span class="pre">ACCELERATESPARSE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EIGENSPARSE</span> <span class="pre">[Default:</span> <span class="pre">ON]</span></code>: By default, Ceres will not use
+Eigen’s sparse Cholesky factorization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GFLAGS</span> <span class="pre">[Default:</span> <span class="pre">ON]</span></code>: Turn this <code class="docutils literal notranslate"><span class="pre">OFF</span></code> to build Ceres without
+<code class="docutils literal notranslate"><span class="pre">gflags</span></code>. This will also prevent some of the example code from
+building.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MINIGLOG</span> <span class="pre">[Default:</span> <span class="pre">OFF]</span></code>: Ceres includes a stripped-down,
+minimal implementation of <code class="docutils literal notranslate"><span class="pre">glog</span></code> which can optionally be used as
+a substitute for <code class="docutils literal notranslate"><span class="pre">glog</span></code>, thus removing <code class="docutils literal notranslate"><span class="pre">glog</span></code> as a required
+dependency. Turn this <code class="docutils literal notranslate"><span class="pre">ON</span></code> to use this minimal <code class="docutils literal notranslate"><span class="pre">glog</span></code>
+implementation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCHUR_SPECIALIZATIONS</span> <span class="pre">[Default:</span> <span class="pre">ON]</span></code>: If you are concerned about
+binary size/compilation time over some small (10-20%) performance
+gains in the <code class="docutils literal notranslate"><span class="pre">SPARSE_SCHUR</span></code> solver, you can disable some of the
+template specializations by turning this <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CERES_THREADING_MODEL</span> <span class="pre">[Default:</span> <span class="pre">CXX_THREADS</span> <span class="pre">&gt;</span> <span class="pre">OPENMP</span> <span class="pre">&gt;</span> <span class="pre">NO_THREADS]</span></code>:
+Multi-threading backend Ceres should be compiled with.  This will
+automatically be set to only accept the available subset of threading
+options in the CMake GUI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BUILD_SHARED_LIBS</span> <span class="pre">[Default:</span> <span class="pre">OFF]</span></code>: By default Ceres is built as
+a static library, turn this <code class="docutils literal notranslate"><span class="pre">ON</span></code> to instead build Ceres as a
+shared library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXPORT_BUILD_DIR</span> <span class="pre">[Default:</span> <span class="pre">OFF]</span></code>: By default Ceres is configured
+solely for installation, and so must be installed in order for
+clients to use it.  Turn this <code class="docutils literal notranslate"><span class="pre">ON</span></code> to export Ceres’ build
+directory location into the <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/manual/cmake-packages.7.html#user-package-registry">user’s local CMake package registry</a>
+where it will be detected <strong>without requiring installation</strong> in a
+client project using CMake when <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/find_package.html">find_package(Ceres)</a>
+is invoked.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BUILD_DOCUMENTATION</span> <span class="pre">[Default:</span> <span class="pre">OFF]</span></code>: Use this to enable building
+the documentation, requires <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> and
+the <a class="reference external" href="https://pypi.python.org/pypi/sphinx-better-theme">sphinx-better-theme</a> package
+available from the Python package index. In addition, <code class="docutils literal notranslate"><span class="pre">make</span>
+<span class="pre">ceres_docs</span></code> can be used to build only the documentation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MSVC_USE_STATIC_CRT</span> <span class="pre">[Default:</span> <span class="pre">OFF]</span></code> <em>Windows Only</em>: By default
+Ceres will use the Visual Studio default, <em>shared</em> C-Run Time (CRT)
+library.  Turn this <code class="docutils literal notranslate"><span class="pre">ON</span></code> to use the <em>static</em> C-Run Time library
+instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIB_SUFFIX</span> <span class="pre">[Default:</span> <span class="pre">"64"</span> <span class="pre">on</span> <span class="pre">non-Debian/Arch</span> <span class="pre">based</span> <span class="pre">64-bit</span> <span class="pre">Linux,</span>
+<span class="pre">otherwise:</span> <span class="pre">""]</span></code>: The suffix to append to the library install
+directory, built from:
+<code class="docutils literal notranslate"><span class="pre">${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}</span></code>.</p>
+<p>The filesystem hierarchy standard recommends that 64-bit systems
+install native libraries to lib64 rather than lib.  Most Linux
+distributions follow this convention, but Debian and Arch based
+distros do not.  Note that the only generally sensible values for
+<code class="docutils literal notranslate"><span class="pre">LIB_SUFFIX</span></code> are “” and “64”.</p>
+<p>Although by default Ceres will auto-detect non-Debian/Arch based
+64-bit Linux distributions and default <code class="docutils literal notranslate"><span class="pre">LIB_SUFFIX</span></code> to “64”, this
+can always be overridden by manually specifying LIB_SUFFIX using:
+<code class="docutils literal notranslate"><span class="pre">-DLIB_SUFFIX=&lt;VALUE&gt;</span></code> when invoking CMake.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="options-controlling-ceres-dependency-locations">
+<h3>Options controlling Ceres dependency locations<a class="headerlink" href="http://ceres-solver.org/installation.html#options-controlling-ceres-dependency-locations" title="Permalink to this headline">¶</a></h3>
+<p>Ceres uses the <code class="docutils literal notranslate"><span class="pre">CMake</span></code> <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/find_package.html">find_package</a>
+function to find all of its dependencies. Dependencies that reliably
+provide config files on all supported platforms are expected to be
+found in “Config” mode of <code class="docutils literal notranslate"><span class="pre">find_package</span></code> (<code class="docutils literal notranslate"><span class="pre">Eigen</span></code>, <code class="docutils literal notranslate"><span class="pre">gflags</span></code>).
+This means you can use the standard <code class="docutils literal notranslate"><span class="pre">CMake</span></code> facilities to customize
+where these dependencies are found, such as <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code>,
+the <code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME&gt;_DIR</span></code> variables, or since <code class="docutils literal notranslate"><span class="pre">CMake</span></code> 3.12 the
+<code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME&gt;_ROOT</span></code> variables.</p>
+<p>Other dependencies are found using
+<code class="docutils literal notranslate"><span class="pre">Find&lt;DEPENDENCY_NAME&gt;.cmake</span></code> scripts which are either included in
+Ceres (for most dependencies) or are shipped as standard with
+<code class="docutils literal notranslate"><span class="pre">CMake</span></code> (for <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">BLAS</span></code>).  These scripts will search all
+of the “standard” install locations for various OSs for each
+dependency.  However, particularly for Windows, they may fail to find
+the library, in this case you will have to manually specify its
+installed location.  The <code class="docutils literal notranslate"><span class="pre">Find&lt;DEPENDENCY_NAME&gt;.cmake</span></code> scripts
+shipped with Ceres support two ways for you to do this:</p>
+<ol class="arabic">
+<li><p>Set the <em>hints</em> variables specifying the <em>directories</em> to search in
+preference, but in addition, to the search directories in the
+<code class="docutils literal notranslate"><span class="pre">Find&lt;DEPENDENCY_NAME&gt;.cmake</span></code> script:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME</span> <span class="pre">(CAPS)&gt;_INCLUDE_DIR_HINTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME</span> <span class="pre">(CAPS)&gt;_LIBRARY_DIR_HINTS</span></code></p></li>
+</ul>
+<p>These variables should be set via <code class="docutils literal notranslate"><span class="pre">-D&lt;VAR&gt;=&lt;VALUE&gt;</span></code>
+<code class="docutils literal notranslate"><span class="pre">CMake</span></code> arguments as they are not visible in the GUI.</p>
+</li>
+<li><p>Set the variables specifying the <em>explicit</em> include directory
+and library file to use:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME</span> <span class="pre">(CAPS)&gt;_INCLUDE_DIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME</span> <span class="pre">(CAPS)&gt;_LIBRARY</span></code></p></li>
+</ul>
+<p>This bypasses <em>all</em> searching in the
+<code class="docutils literal notranslate"><span class="pre">Find&lt;DEPENDENCY_NAME&gt;.cmake</span></code> script, but validation is still
+performed.</p>
+<p>These variables are available to set in the <code class="docutils literal notranslate"><span class="pre">CMake</span></code> GUI. They are
+visible in the <em>Standard View</em> if the library has not been found
+(but the current Ceres configuration requires it), but are always
+visible in the <em>Advanced View</em>.  They can also be set directly via
+<code class="docutils literal notranslate"><span class="pre">-D&lt;VAR&gt;=&lt;VALUE&gt;</span></code> arguments to <code class="docutils literal notranslate"><span class="pre">CMake</span></code>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="building-using-custom-blas-lapack-installs">
+<h3>Building using custom BLAS &amp; LAPACK installs<a class="headerlink" href="http://ceres-solver.org/installation.html#building-using-custom-blas-lapack-installs" title="Permalink to this headline">¶</a></h3>
+<p>If the standard find package scripts for <code class="docutils literal notranslate"><span class="pre">BLAS</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> which
+ship with <code class="docutils literal notranslate"><span class="pre">CMake</span></code> fail to find the desired libraries on your system,
+try setting <code class="docutils literal notranslate"><span class="pre">CMAKE_LIBRARY_PATH</span></code> to the path(s) to the directories
+containing the <code class="docutils literal notranslate"><span class="pre">BLAS</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">LAPACK</span></code> libraries when invoking <code class="docutils literal notranslate"><span class="pre">CMake</span></code>
+to build Ceres via <code class="docutils literal notranslate"><span class="pre">-D&lt;VAR&gt;=&lt;VALUE&gt;</span></code>.  This should result in the
+libraries being found for any common variant of each.</p>
+<p>Alternatively, you may also directly specify the <code class="docutils literal notranslate"><span class="pre">BLAS_LIBRARIES</span></code> and
+<code class="docutils literal notranslate"><span class="pre">LAPACK_LIBRARIES</span></code> variables via <code class="docutils literal notranslate"><span class="pre">-D&lt;VAR&gt;=&lt;VALUE&gt;</span></code> when invoking CMake
+to configure Ceres.</p>
+</div>
+</div>
+<div class="section" id="using-ceres-with-cmake">
+<span id="section-using-ceres"></span><h2>Using Ceres with CMake<a class="headerlink" href="http://ceres-solver.org/installation.html#using-ceres-with-cmake" title="Permalink to this headline">¶</a></h2>
+<p>In order to use Ceres in client code with CMake using <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/find_package.html">find_package()</a>
+then either:</p>
+<ol class="arabic">
+<li><dl>
+<dt>Ceres must have been installed with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>.  If the</dt><dd><p>install location is non-standard (i.e. is not in CMake’s default
+search paths) then it will not be detected by default, see:
+<a class="reference internal" href="http://ceres-solver.org/installation.html#section-local-installations"><span class="std std-ref">Local installations</span></a>.</p>
+<p>Note that if you are using a non-standard install location you
+should consider exporting Ceres instead, as this will not require
+any extra information to be provided in client code for Ceres to
+be detected.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Or Ceres’ build directory must have been exported by enabling the</dt><dd><p><code class="docutils literal notranslate"><span class="pre">EXPORT_BUILD_DIR</span></code> option when Ceres was configured.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>As an example of how to use Ceres, to compile <a class="reference external" href="https://ceres-solver.googlesource.com/ceres-solver/+/master/examples/helloworld.cc">examples/helloworld.cc</a>
+in a separate standalone project, the following CMakeList.txt can be
+used:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.5</span><span class="p">)</span>
+
+<span class="nb">project</span><span class="p">(</span><span class="s">helloworld</span><span class="p">)</span>
+
+<span class="nb">find_package</span><span class="p">(</span><span class="s">Ceres</span> <span class="s">REQUIRED</span><span class="p">)</span>
+
+<span class="c"># helloworld</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">helloworld</span> <span class="s">helloworld.cc</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">helloworld</span> <span class="s">Ceres::ceres</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Irrespective of whether Ceres was installed or exported, if multiple
+versions are detected, set: <code class="docutils literal notranslate"><span class="pre">Ceres_DIR</span></code> to control which is used.
+If Ceres was installed <code class="docutils literal notranslate"><span class="pre">Ceres_DIR</span></code> should be the path to the
+directory containing the installed <code class="docutils literal notranslate"><span class="pre">CeresConfig.cmake</span></code> file
+(e.g. <code class="docutils literal notranslate"><span class="pre">/usr/local/lib/cmake/Ceres</span></code>).  If Ceres was exported, then
+<code class="docutils literal notranslate"><span class="pre">Ceres_DIR</span></code> should be the path to the exported Ceres build
+directory.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You do not need to call include_directories(${CERES_INCLUDE_DIRS})
+as the exported Ceres CMake target already contains the definitions
+of its public include directories which will be automatically
+included by CMake when compiling a target that links against Ceres.
+In fact, since v2.0 <code class="docutils literal notranslate"><span class="pre">CERES_INCLUDE_DIRS</span></code> is not even set.</p>
+</div>
+</div></blockquote>
+<div class="section" id="specify-ceres-components">
+<h3>Specify Ceres components<a class="headerlink" href="http://ceres-solver.org/installation.html#specify-ceres-components" title="Permalink to this headline">¶</a></h3>
+<p>You can specify particular Ceres components that you require (in order
+for Ceres to be reported as found) when invoking
+<code class="docutils literal notranslate"><span class="pre">find_package(Ceres)</span></code>.  This allows you to specify, for example,
+that you require a version of Ceres built with SuiteSparse support.
+By definition, if you do not specify any components when calling
+<code class="docutils literal notranslate"><span class="pre">find_package(Ceres)</span></code> (the default) any version of Ceres detected
+will be reported as found, irrespective of which components it was
+built with.</p>
+<p>The Ceres components which can be specified are:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LAPACK</span></code>: Ceres built using LAPACK (<code class="docutils literal notranslate"><span class="pre">LAPACK=ON</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code>: Ceres built with SuiteSparse (<code class="docutils literal notranslate"><span class="pre">SUITESPARSE=ON</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CXSparse</span></code>: Ceres built with CXSparse (<code class="docutils literal notranslate"><span class="pre">CXSPARSE=ON</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AccelerateSparse</span></code>: Ceres built with Apple’s Accelerate sparse solvers (<code class="docutils literal notranslate"><span class="pre">ACCELERATESPARSE=ON</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EigenSparse</span></code>: Ceres built with Eigen’s sparse Cholesky factorization
+(<code class="docutils literal notranslate"><span class="pre">EIGENSPARSE=ON</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SparseLinearAlgebraLibrary</span></code>: Ceres built with <em>at least one</em> sparse linear
+algebra library.  This is equivalent to <code class="docutils literal notranslate"><span class="pre">SuiteSparse</span></code> <strong>OR</strong> <code class="docutils literal notranslate"><span class="pre">CXSparse</span></code>
+<strong>OR</strong> <code class="docutils literal notranslate"><span class="pre">AccelerateSparse</span></code>  <strong>OR</strong> <code class="docutils literal notranslate"><span class="pre">EigenSparse</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SchurSpecializations</span></code>: Ceres built with Schur specializations
+(<code class="docutils literal notranslate"><span class="pre">SCHUR_SPECIALIZATIONS=ON</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OpenMP</span></code>: Ceres built with OpenMP (<code class="docutils literal notranslate"><span class="pre">CERES_THREADING_MODEL=OPENMP</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Multithreading</span></code>: Ceres built with <em>a</em> multithreading library.
+This is equivalent to (<code class="docutils literal notranslate"><span class="pre">CERES_THREAD</span> <span class="pre">!=</span> <span class="pre">NO_THREADS</span></code>).</p></li>
+</ol>
+<p>To specify one/multiple Ceres components use the <code class="docutils literal notranslate"><span class="pre">COMPONENTS</span></code> argument to
+<a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/find_package.html">find_package()</a> like so:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Find a version of Ceres compiled with SuiteSparse &amp; EigenSparse support.</span>
+<span class="c">#</span>
+<span class="c"># NOTE: This will report Ceres as **not** found if the detected version of</span>
+<span class="c">#            Ceres was not compiled with both SuiteSparse &amp; EigenSparse.</span>
+<span class="c">#            Remember, if you have multiple versions of Ceres installed, you</span>
+<span class="c">#            can use Ceres_DIR to specify which should be used.</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">Ceres</span> <span class="s">REQUIRED</span> <span class="s">COMPONENTS</span> <span class="s">SuiteSparse</span> <span class="s">EigenSparse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specify-ceres-version">
+<h3>Specify Ceres version<a class="headerlink" href="http://ceres-solver.org/installation.html#specify-ceres-version" title="Permalink to this headline">¶</a></h3>
+<p>Additionally, when CMake has found Ceres it can optionally check the package
+version, if it has been specified in the <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/find_package.html">find_package()</a>
+call.  For example:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">Ceres</span> <span class="s">1.2.3</span> <span class="s">REQUIRED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-installations">
+<span id="section-local-installations"></span><h3>Local installations<a class="headerlink" href="http://ceres-solver.org/installation.html#local-installations" title="Permalink to this headline">¶</a></h3>
+<p>If Ceres was installed in a non-standard path by specifying
+<code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX="/some/where/local"</span></code>, then the user should
+add the <strong>PATHS</strong> option to the <code class="docutils literal notranslate"><span class="pre">find_package()</span></code> command, e.g.,</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">Ceres</span> <span class="s">REQUIRED</span> <span class="s">PATHS</span> <span class="s2">"/some/where/local/"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that this can be used to have multiple versions of Ceres
+installed.  However, particularly if you have only a single version of
+Ceres which you want to use but do not wish to install to a system
+location, you should consider exporting Ceres using the
+<code class="docutils literal notranslate"><span class="pre">EXPORT_BUILD_DIR</span></code> option instead of a local install, as exported
+versions of Ceres will be automatically detected by CMake,
+irrespective of their location.</p>
+</div>
+<div class="section" id="understanding-the-cmake-package-system">
+<h3>Understanding the CMake Package System<a class="headerlink" href="http://ceres-solver.org/installation.html#understanding-the-cmake-package-system" title="Permalink to this headline">¶</a></h3>
+<p>Although a full tutorial on CMake is outside the scope of this guide,
+here we cover some of the most common CMake misunderstandings that
+crop up when using Ceres.  For more detailed CMake usage, the
+following references are very useful:</p>
+<ul>
+<li><p>The <a class="reference external" href="http://www.cmake.org/cmake-tutorial/">official CMake tutorial</a></p>
+<blockquote>
+<div><p>Provides a tour of the core features of CMake.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="http://www.cmake.org/Wiki/CMake/Tutorials/How_to_create_a_ProjectConfig.cmake_file">ProjectConfig tutorial</a>
+and the <a class="reference external" href="http://www.cmake.org/cmake/help/git-master/manual/cmake-packages.7.html">cmake-packages documentation</a></p>
+<blockquote>
+<div><p>Cover how to write a <code class="docutils literal notranslate"><span class="pre">ProjectConfig.cmake</span></code> file, discussed below,
+for your own project when installing or exporting it using CMake.
+It also covers how these processes in conjunction with
+<code class="docutils literal notranslate"><span class="pre">find_package()</span></code> are actually handled by CMake.  The
+<a class="reference external" href="http://www.cmake.org/Wiki/CMake/Tutorials/How_to_create_a_ProjectConfig.cmake_file">ProjectConfig tutorial</a>
+is the older style, currently used by Ceres for compatibility with
+older versions of CMake.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Targets in CMake.</strong></p>
+<p>All libraries and executables built using CMake are represented as
+<em>targets</em> created using <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/add_library.html">add_library()</a>
+and <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/add_executable.html">add_executable()</a>.
+Targets encapsulate the rules and dependencies (which can be other
+targets) required to build or link against an object.  This allows
+CMake to implicitly manage dependency chains.  Thus it is
+sufficient to tell CMake that a library target: <code class="docutils literal notranslate"><span class="pre">B</span></code> depends on a
+previously declared library target <code class="docutils literal notranslate"><span class="pre">A</span></code>, and CMake will
+understand that this means that <code class="docutils literal notranslate"><span class="pre">B</span></code> also depends on all of the
+public dependencies of <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+</div>
+</li>
+</ul>
+<p>When a project like Ceres is installed using CMake, or its build
+directory is exported into the local CMake package registry (see
+<a class="reference internal" href="http://ceres-solver.org/installation.html#section-install-vs-export"><span class="std std-ref">Installing a project with CMake vs Exporting its build directory</span></a>), in addition to the public headers
+and compiled libraries, a set of CMake-specific project configuration
+files are also installed to: <code class="docutils literal notranslate"><span class="pre">&lt;INSTALL_ROOT&gt;/lib/cmake/Ceres</span></code> (if Ceres
+is installed), or created in the build directory (if Ceres’ build
+directory is exported).  When <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/find_package.html">find_package</a> is
+invoked, CMake checks various standard install locations (including
+<code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> on Linux &amp; UNIX systems), and the local CMake package
+registry for CMake configuration files for the project to be found
+(i.e. Ceres in the case of <code class="docutils literal notranslate"><span class="pre">find_package(Ceres)</span></code>).  Specifically it
+looks for:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;PROJECT_NAME&gt;Config.cmake</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">&lt;lower_case_project_name&gt;-config.cmake</span></code>)</p>
+<blockquote>
+<div><p>Which is written by the developers of the project, and is
+configured with the selected options and installed locations when
+the project is built and imports the project targets and/or defines
+the legacy CMake variables: <code class="docutils literal notranslate"><span class="pre">&lt;PROJECT_NAME&gt;_INCLUDE_DIRS</span></code> &amp;
+<code class="docutils literal notranslate"><span class="pre">&lt;PROJECT_NAME&gt;_LIBRARIES</span></code> which are used by the caller.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;PROJECT_NAME&gt;Config.cmake</span></code> typically includes a second file
+installed to the same location:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;PROJECT_NAME&gt;Targets.cmake</span></code></p>
+<blockquote>
+<div><p>Which is autogenerated by CMake as part of the install process and defines
+<strong>imported targets</strong> for the project in the caller’s CMake scope.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>An <strong>imported target</strong> contains the same information about a library
+as a CMake target that was declared locally in the current CMake
+project using <code class="docutils literal notranslate"><span class="pre">add_library()</span></code>.  However, imported targets refer to
+objects that have already been built by a different CMake project.
+Principally, an imported target contains the location of the compiled
+object and all of its public dependencies required to link against it
+as well as all required include directories.  Any locally declared target
+can depend on an imported target, and CMake will manage the dependency
+chain, just as if the imported target had been declared locally by the
+current project.</p>
+<p>Crucially, just like any locally declared CMake target, an imported target is
+identified by its <strong>name</strong> when adding it as a dependency to another target.</p>
+<p>Since v2.0, Ceres has used the target namespace feature of CMake to prefix
+its export targets: <code class="docutils literal notranslate"><span class="pre">Ceres::ceres</span></code>.  However, historically the Ceres target
+did not have a namespace, and was just called <code class="docutils literal notranslate"><span class="pre">ceres</span></code>.</p>
+<p>Whilst an alias target called <code class="docutils literal notranslate"><span class="pre">ceres</span></code> is still provided in v2.0 for backwards
+compatibility, it creates a potential drawback, if you failed to call
+<code class="docutils literal notranslate"><span class="pre">find_package(Ceres)</span></code>, and Ceres is installed in a default search path for
+your compiler, then instead of matching the imported Ceres target, it will
+instead match the installed libceres.so/dylib/a library.  If this happens you
+will get either compiler errors for missing include directories or linker errors
+due to missing references to Ceres public dependencies.</p>
+<p>Note that this description applies both to projects that are
+<strong>installed</strong> using CMake, and to those whose <strong>build directory is
+exported</strong> using <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/export.html">export()</a> (instead
+of <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/command/install.html">install()</a>).  Ceres
+supports both installation and export of its build directory if the
+<code class="docutils literal notranslate"><span class="pre">EXPORT_BUILD_DIR</span></code> option is enabled, see
+<a class="reference internal" href="http://ceres-solver.org/installation.html#section-customizing"><span class="std std-ref">Customizing the build</span></a>.</p>
+<div class="section" id="installing-a-project-with-cmake-vs-exporting-its-build-directory">
+<span id="section-install-vs-export"></span><h4>Installing a project with CMake vs Exporting its build directory<a class="headerlink" href="http://ceres-solver.org/installation.html#installing-a-project-with-cmake-vs-exporting-its-build-directory" title="Permalink to this headline">¶</a></h4>
+<p>When a project is <strong>installed</strong>, the compiled libraries and headers
+are copied from the source &amp; build directory to the install location,
+and it is these copied files that are used by any client code.  When a
+project’s build directory is <strong>exported</strong>, instead of copying the
+compiled libraries and headers, CMake creates an entry for the project
+in the <a class="reference external" href="http://www.cmake.org/cmake/help/v3.5/manual/cmake-packages.7.html#user-package-registry">user’s local CMake package registry</a>,
+<code class="docutils literal notranslate"><span class="pre">&lt;USER_HOME&gt;/.cmake/packages</span></code> on Linux &amp; macOS, which contains the
+path to the project’s build directory which will be checked by CMake
+during a call to <code class="docutils literal notranslate"><span class="pre">find_package()</span></code>.  The effect of which is that any
+client code uses the compiled libraries and headers in the build
+directory directly, <strong>thus not requiring the project to be installed
+to be used</strong>.</p>
+</div>
+</div>
+<div class="section" id="installing-exporting-a-project-that-uses-ceres">
+<h3>Installing / Exporting a project that uses Ceres<a class="headerlink" href="http://ceres-solver.org/installation.html#installing-exporting-a-project-that-uses-ceres" title="Permalink to this headline">¶</a></h3>
+<p>As described in <a class="reference internal" href="http://ceres-solver.org/installation.html#understanding-the-cmake-package-system">Understanding the CMake Package System</a>, the contents of
+the <code class="docutils literal notranslate"><span class="pre">CERES_LIBRARIES</span></code> variable is the <strong>name</strong> of an imported target which
+represents Ceres.  If you are installing / exporting your <em>own</em> project which
+<em>uses</em> Ceres, it is important to understand that:</p>
+<p><strong>Imported targets are not (re)exported when a project which imported them is
+exported</strong>.</p>
+<p>Thus, when a project <code class="docutils literal notranslate"><span class="pre">Foo</span></code> which uses Ceres is exported, its list of
+dependencies as seen by another project <code class="docutils literal notranslate"><span class="pre">Bar</span></code> which imports <code class="docutils literal notranslate"><span class="pre">Foo</span></code>
+via: <code class="docutils literal notranslate"><span class="pre">find_package(Foo</span> <span class="pre">REQUIRED)</span></code> will contain: <code class="docutils literal notranslate"><span class="pre">ceres</span></code>.  However,
+the definition of <code class="docutils literal notranslate"><span class="pre">ceres</span></code> as an imported target is <strong>not
+(re)exported</strong> when Foo is exported.  Hence, without any additional
+steps, when processing <code class="docutils literal notranslate"><span class="pre">Bar</span></code>, <code class="docutils literal notranslate"><span class="pre">ceres</span></code> will not be defined as an
+imported target.  Thus, when processing <code class="docutils literal notranslate"><span class="pre">Bar</span></code>, CMake will assume
+that <code class="docutils literal notranslate"><span class="pre">ceres</span></code> refers only to: <code class="docutils literal notranslate"><span class="pre">libceres.a/so/dylib/lib</span></code> (the
+compiled Ceres library) directly if it is on the current list of
+search paths.  In which case, no CMake errors will occur, but <code class="docutils literal notranslate"><span class="pre">Bar</span></code>
+will not link properly, as it does not have the required public link
+dependencies of Ceres, which are stored in the imported target
+definition.</p>
+<p>The solution to this is for <code class="docutils literal notranslate"><span class="pre">Foo</span></code> (i.e., the project that uses
+Ceres) to invoke <code class="docutils literal notranslate"><span class="pre">find_package(Ceres)</span></code> in <code class="docutils literal notranslate"><span class="pre">FooConfig.cmake</span></code>, thus
+<code class="docutils literal notranslate"><span class="pre">ceres</span></code> will be defined as an imported target when CMake processes
+<code class="docutils literal notranslate"><span class="pre">Bar</span></code>.  An example of the required modifications to
+<code class="docutils literal notranslate"><span class="pre">FooConfig.cmake</span></code> are show below:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Importing Ceres in FooConfig.cmake using CMake 3.x style.</span>
+<span class="c">#</span>
+<span class="c"># In CMake v3.x, the find_dependency() macro exists to forward the REQUIRED</span>
+<span class="c"># / QUIET parameters to find_package() when searching for dependencies.</span>
+<span class="c">#</span>
+<span class="c"># Note that find_dependency() does not take a path hint, so if Ceres was</span>
+<span class="c"># installed in a non-standard location, that location must be added to</span>
+<span class="c"># CMake's search list before this call.</span>
+<span class="nb">include</span><span class="p">(</span><span class="s">CMakeFindDependencyMacro</span><span class="p">)</span>
+<span class="nb">find_dependency</span><span class="p">(</span><span class="s">Ceres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="migration">
+<span id="section-migration"></span><h2>Migration<a class="headerlink" href="http://ceres-solver.org/installation.html#migration" title="Permalink to this headline">¶</a></h2>
+<p>The following includes some hints for migrating from previous versions.</p>
+<div class="section" id="version-2-0">
+<h3>Version 2.0<a class="headerlink" href="http://ceres-solver.org/installation.html#version-2-0" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>When using Ceres with CMake, the target name in v2.0 is
+<code class="docutils literal notranslate"><span class="pre">Ceres::ceres</span></code> following modern naming convetions. The legacy
+target <code class="docutils literal notranslate"><span class="pre">ceres</span></code> exists for backwards compatibility, but is
+deprecated. <code class="docutils literal notranslate"><span class="pre">CERES_INCLUDE_DIRS</span></code> is not set any more, as the
+exported Ceres CMake target already contains the definitions of its
+public include directories which will be automatically included by
+CMake when compiling a target that links against Ceres.</p></li>
+<li><p>When building Ceres, some dependencies (Eigen, gflags) are not found
+using custom <code class="docutils literal notranslate"><span class="pre">Find&lt;DEPENDENCY_NAME&gt;.cmake</span></code> modules any
+more. Hence, instead of the custom variables (<code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME</span> <span class="pre">(CAPS)&gt;_INCLUDE_DIR_HINTS</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME</span> <span class="pre">(CAPS)&gt;_INCLUDE_DIR</span></code>, …) you should use standard
+CMake facilities to customize where these dependencies are found, such as
+<code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code>, the <code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME&gt;_DIR</span></code> variables, or
+since CMake 3.12 the <code class="docutils literal notranslate"><span class="pre">&lt;DEPENDENCY_NAME&gt;_ROOT</span></code> variables.</p></li>
+<li><p>While TBB is not used any more directly by Ceres, it might still try
+to link against it, if SuiteSparseQR was found. The variable (environment
+or CMake) to customize this is <code class="docutils literal notranslate"><span class="pre">TBB_ROOT</span></code> (used to be <code class="docutils literal notranslate"><span class="pre">TBBROOT</span></code>).
+For example, use <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-DTBB_ROOT=/opt/intel/tbb</span> <span class="pre">...</span></code> if you want to
+link against TBB installed from Intel’s binary packages on Linux.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="http://ceres-solver.org/tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="http://ceres-solver.org/features.html" class="btn btn-neutral float-left" title="Why?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+        © Copyright 2020 Google Inc
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49769510-1', 'ceres-solver.org');
+  ga('send', 'pageview');
+</script>
+
+
+
+</body><div style="all: initial;"><div id="__hcfy__" style="all: initial;"></div></div><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
